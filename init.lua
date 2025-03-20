@@ -234,6 +234,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   require 'custom/plugins/tailwind',
   require 'custom/plugins/nvim-ts-autotag',
+  require 'custom/plugins/copilot',
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
@@ -724,7 +725,7 @@ require('lazy').setup({
             -- certain features of an LSP (for example, turning off formatting for ts_ls)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             if server_name == 'tsserver' then
-              require('lspconfig')[server_name].setup { filetypes = { 'typescript', 'typescript.tsx' } }
+              require('lspconfig')[server_name].setup { filetypes = { 'typescript', 'typescript.tsx', 'typescriptreact' } }
             else
               require('lspconfig')[server_name].setup(server)
             end
