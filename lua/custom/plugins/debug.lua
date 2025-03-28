@@ -136,16 +136,10 @@ return {
     }
     --config php dap
 
-    dap.adapters.php = {
-      type = 'executable',
-      command = 'node',
-      args = { os.getenv 'HOME' .. '/vscode-php-debug/out/phpDebug.js' },
-    }
-
     dap.configurations.php = {
       {
         name = 'PHP: Listen for Xdebug',
-        port = 9003,
+        port = 9004,
         request = 'launch',
         type = 'php',
         breakpoints = {
