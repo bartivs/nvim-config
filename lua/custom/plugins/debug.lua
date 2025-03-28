@@ -43,14 +43,14 @@ return {
       desc = 'Debug: Step Out',
     },
     {
-      '<leader>b',
+      '<leader>db',
       function()
         require('dap').toggle_breakpoint()
       end,
       desc = 'Debug: Toggle Breakpoint',
     },
     {
-      '<leader>B',
+      '<leader>dB',
       function()
         require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
       end,
@@ -58,7 +58,7 @@ return {
     },
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
-      '<F7>',
+      '<leader>du',
       function()
         require('dapui').toggle()
       end,
@@ -84,6 +84,7 @@ return {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
         'php',
+        'php-debug-adapter',
       },
     }
 
@@ -134,11 +135,29 @@ return {
       },
     }
     --config php dap
+
     dap.adapters.php = {
-      type = 'php',
-      request = 'launch',
-      name = 'Listen for Xdebug',
-      port = 9003,
+      type = 'executable',
+      command = 'node',
+      args = { os.getenv 'HOME' .. '/vscode-php-debug/out/phpDebug.js' },
+    }
+
+    dap.configurations.php = {
+      {
+        name = 'PHP: Listen for Xdebug',
+        port = 9003,
+        request = 'launch',
+        type = 'php',
+        breakpoints = {
+          exception = {
+            Notice = false,
+            Warning = false,
+            Error = false,
+            Exception = false,
+            ['*'] = false,
+          },
+        },
+      },
     }
   end,
 }
