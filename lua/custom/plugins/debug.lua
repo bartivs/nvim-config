@@ -29,14 +29,14 @@ return {
       desc = 'Debug: Step Into',
     },
     {
-      '<leader>dh',
+      '<leader>dl',
       function()
         require('dap').step_over()
       end,
       desc = 'Debug: Step Over',
     },
     {
-      '<leader>dl',
+      '<leader>dj',
       function()
         require('dap').step_out()
       end,
