@@ -15,35 +15,35 @@ return {
   keys = {
     -- Basic debugging keymaps, feel free to change to your liking!
     {
-      '<leader>Ds',
+      '<leader>ds',
       function()
         require('dap').continue()
       end,
       desc = 'Debug: Start/Continue',
     },
     {
-      '<leader>Di',
+      '<leader>di',
       function()
         require('dap').step_into()
       end,
       desc = 'Debug: Step Into',
     },
     {
-      '<leader>Dh',
+      '<leader>dh',
       function()
         require('dap').step_over()
       end,
       desc = 'Debug: Step Over',
     },
     {
-      '<leader>Dl',
+      '<leader>dl',
       function()
         require('dap').step_out()
       end,
       desc = 'Debug: Step Out',
     },
     {
-      '<leader>Db',
+      '<leader>db',
       function()
         require('dap').toggle_breakpoint()
       end,
@@ -51,7 +51,7 @@ return {
     },
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
-      '<leader>Du',
+      '<leader>du',
       function()
         require('dapui').toggle()
       end,
