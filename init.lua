@@ -236,6 +236,8 @@ require('lazy').setup({
   require 'custom/plugins/nvim-ts-autotag',
   require 'custom/plugins/copilot',
   require 'custom/plugins/debug',
+  require 'custom/plugins/git',
+  require 'custom/plugins/tmux-navigator',
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
