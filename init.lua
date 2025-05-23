@@ -681,6 +681,26 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         ts_ls = {},
+        tailwindcss = {
+          settings = {
+            tailwindCSS = {
+              classAttributes = { 'class', 'className', 'class:list', 'classList', 'ngClass', 'tw' },
+              experimental = {
+                classRegex = {
+                  'tw`([^`]*)',
+                  'tw="([^"]*)',
+                  'tw={"([^"}]*)',
+                  'tw\\.\\w+`([^`]*)',
+                  'tw\\(.*?\\)`([^`]*)',
+                  { 'clsx\\(([^)]*)\\)', "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+                  { 'classnames\\(([^)]*)\\)', "'([^']*)'" },
+                  { 'cva\\(([^)]*)\\)', '["\'`]([^"\'`]*).*?["\'`]' },
+                  { 'cn\\(([^)]*)\\)', "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+                },
+              },
+            },
+          },
+        },
         --
 
         lua_ls = {
