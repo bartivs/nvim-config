@@ -78,6 +78,7 @@ return {
         'delve',
         'php',
         'php-debug-adapter',
+        'python',
       },
     }
 
