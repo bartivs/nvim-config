@@ -232,6 +232,7 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
+  lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json",
   require 'custom/plugins/tailwind',
   require 'custom/plugins/nvim-ts-autotag',
   require 'custom/plugins/copilot',
